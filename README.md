@@ -132,5 +132,7 @@ ai-agent-test-framework/
 - **✅ Automated Testing** – Pytest + Behave + Allure.
 
 
+<img width="1067" height="780" alt="Screenshot 2025-08-13 163225" src="https://github.com/user-attachments/assets/1458970f-5f5a-4993-a189-78c1f67e693d" />
+
 
 > ⚡ Developed for robust AI agent testing with **speed**, **clarity**, and **automation** in mind.
