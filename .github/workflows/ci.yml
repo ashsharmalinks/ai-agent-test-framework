@@ -9,16 +9,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - run: pip install -r requirements.txt
+
+      # If you have pyproject.toml / setup.cfg set up:
+      - name: Install package (editable)
+        run: pip install -e .
+
+      # Safety net if package lives in root OR src/
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE}/src" >> $GITHUB_ENV
+
       - name: Fast tests
         run: pytest -m "not slow and not perf" -q
+
       - name: Dataset evals (informational)
         run: pytest -m "evals" -q || true
+
       - name: Behave BDD
         run: behave || true  # keep green for PRs; tighten later
+
       - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v4
