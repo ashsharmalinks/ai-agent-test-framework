@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[project]
+name = "ai-agent-test-framework"
+version = "0.1.0"
+description = "Sample Python test framework for AI agents using pytest"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --alluredir=./allure-results"
+markers = [
+  "slow: marks tests as slow (deselect with -m 'not slow')",
+  "perf: performance tests",
+  "evals: dataset-based evaluation tests"
+]

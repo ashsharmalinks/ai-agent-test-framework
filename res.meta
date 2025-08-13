@@ -1,0 +1,7 @@
+"meta": {
+    "tokens": 42,
+    "cost": 0.005,
+    "latency_ms": 123,
+    "recall": 0.9,
+    "precision": 0.95
+}
